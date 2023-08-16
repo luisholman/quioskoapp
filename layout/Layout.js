@@ -1,7 +1,25 @@
 import { Sidebar } from "@/components/Sidebar"
 import Head from "next/head"
+import Modal from "react-modal"
+import { useQuiosco } from "@/hooks/useQuiosco";
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
+Modal.setAppElement('#__next');
 
 export default function Layout({children, pagina}) {
+
+const {modal} = useQuiosco()
+
     return (
       <>
       <Head>
@@ -9,8 +27,8 @@ export default function Layout({children, pagina}) {
         <meta name="description" content="quiosko Cafeteria"/>
       </Head>
 
-      <div>
-        <aside className="md:w-4/12 xl:w-1/4 2xl:w-1/5">
+      <div className="md:flex">
+        <aside className="md:w-4/12 xl:w-1/4 2xl:w-1/5  mx-2">
             <Sidebar/>
         </aside>
 
@@ -21,6 +39,15 @@ export default function Layout({children, pagina}) {
             
         </main>
       </div>
+
+      {modal && (
+        <Modal
+        isOpen={modal}
+        style={customStyles}
+        >
+          <h1>Modal..</h1>
+        </Modal>
+      )}
       </>
     )
   }
