@@ -3,7 +3,7 @@ import { formatearDinero } from "@/helpers"
 import { useQuiosco } from "@/hooks/useQuiosco"
 
 export const Producto = ({ producto }) => {
-    const { handleSetProducto, handleChanceModal } =useQuiosco()
+    const { handleSetProducto, handleChangeModal } =useQuiosco()
 
     const { nombre, imagen, precio } = producto
     return (
@@ -29,7 +29,7 @@ export const Producto = ({ producto }) => {
                 bg-indigo-600 hover:bg-indigo-800 text-white
                 w-full mt-5 p-3 uppercase font-bold "
                 onClick={()=> {
-                    handleChanceModal()
+                    handleChangeModal()
                     handleSetProducto(producto)
                 }}
                 >

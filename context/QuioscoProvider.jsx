@@ -29,7 +29,7 @@ const QuioscoProvider =({children})=>{
         setProducto(producto)
     }
 
-    const handleChanceModal = () =>{
+    const handleChangeModal = () =>{
         setModal(!modal) //va ser lo contrario que hay en modal
     }
 
@@ -42,7 +42,7 @@ const QuioscoProvider =({children})=>{
             producto,
             handleSetProducto,
             modal,
-            handleChanceModal
+            handleChangeModal
         }}
         >
             {children}
